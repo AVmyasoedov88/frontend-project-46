@@ -7,6 +7,7 @@ import path from 'path';
 function getInf(obj1, obj2) {
     const keys = _.uniq([...(Object.keys(obj1)), ...(Object.keys(obj2))])
     const sortedKeys = _.sortBy(keys)
+    
     const result = sortedKeys.map((key) => {
         let arr = []
         if ((obj1[key] && obj2[key]) && (obj1[key] !== obj2[key])) {
@@ -47,8 +48,10 @@ const readFile = (filePath) => fs.readFileSync(getPath(filePath), 'utf-8');
 function genDiff (filePath1, filePath2) {
   const object1 = JSON.parse(readFile(filePath1))
   const object2 = JSON.parse(readFile(filePath2))
+  //console.log(JSON.stringify(getInf(object1, object2)))
   return getInf(object1, object2)
 };
+genDiff('file1.json', 'file2.json')
 
 //gendiff('file1.json', 'file2.json')
 
