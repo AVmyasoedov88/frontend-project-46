@@ -15,4 +15,4 @@ program
   
 
 program.parse();
-console.log(genDiff('file1.json', 'file2.json'));
+//console.log(genDiff('file1.json', 'file2.json'));
