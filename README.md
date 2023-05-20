@@ -12,7 +12,8 @@
 [![asciicast](https://asciinema.org/a/ZoSESHtED610fYyZUJRT8Ngqi.svg)](https://asciinema.org/a/ZoSESHtED610fYyZUJRT8Ngqi)
 
 
-
-
 "gendiff with plain format"
 [![asciicast](https://asciinema.org/a/wf28I8wvWST8IsObCTpVbrFqV.svg)](https://asciinema.org/a/wf28I8wvWST8IsObCTpVbrFqV)
+
+"gendiff with stylish format"
+[![asciicast](https://asciinema.org/a/Uy6nudjB5i0y6UhtwM9wEorQl.svg)](https://asciinema.org/a/Uy6nudjB5i0y6UhtwM9wEorQl)
