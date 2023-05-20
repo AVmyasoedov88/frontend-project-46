@@ -22,5 +22,3 @@ program.parse();
 
 export default program;
 
-//console.log(findDifferences('file1.json', 'file2.json', 'plain'))
-//gendiff --format plain filepath1.json filepath2.json

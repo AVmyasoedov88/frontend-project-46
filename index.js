@@ -1,10 +1,11 @@
 import stylish from "./src/formatters/stylish.js";
 import plain from './src/formatters/plain.js';
-//import json from './json.js';
+import json from './src/formatters/json.js';
 
 const formatters = {
   plain,
   stylish,
+  json,
   
 };
 
