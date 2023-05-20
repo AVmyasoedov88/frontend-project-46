@@ -1,37 +1,27 @@
-import path from 'path';
-import fs from 'fs';
 import yaml from 'js-yaml';
+import path from "path";
+import fs from 'fs';
+import _ from "lodash";
 
+const parsers = {
+  json: JSON.parse,
+  yaml: yaml.load,
+  yml: yaml.load,
+};
 
-class JsonParser {
-    parse(data) {
-      return JSON.parse(data);
-    }
-  }
-
-  class YamlParser {
-    parse(data) {
-      return yaml.load(data);
-    }
-  }
-  const mapping = {
-    yaml: YamlParser,
-    yml: YamlParser,
-    json: JsonParser,
-  };
-  
+export default (filePath) => {
   const getPath = (filePath) => path.resolve(process.cwd(), '__fixtures__', filePath);
-  
-  export default class ConfigFactory {
-    static factory(str) {
-        const filePath = getPath(str)
-        const type = path.extname(filePath).slice(1);
-        const parser =  new mapping[type]();
-        const rawData = fs.readFileSync(filePath).toString();
-      const data = parser.parse(rawData);
-  
-      return data;
-    }
-  }
+   const readFile = (fullPath) => fs.readFileSync(fullPath, 'UTF-8');
+  //console.log(readFile(getPath(filePath)))
+  const data = readFile(getPath(filePath))
+  const getFileFormat = (filePath) => path.extname(filePath).slice(1);
+  const format = getFileFormat(getPath(filePath))
+  //console.log(format)
+  if (!parsers[format]) throw new Error('unknow file format');
 
+  const outputObject = parsers[format](data);
 
+  if (!_.isPlainObject(outputObject)) throw new Error('Failed correctly to parse files.');
+
+  return outputObject;
+};

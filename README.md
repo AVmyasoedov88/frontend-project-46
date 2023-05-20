@@ -10,3 +10,9 @@
 
 "gendiff with yml"
 [![asciicast](https://asciinema.org/a/ZoSESHtED610fYyZUJRT8Ngqi.svg)](https://asciinema.org/a/ZoSESHtED610fYyZUJRT8Ngqi)
+
+
+
+
+"gendiff with plain format"
+[![asciicast](https://asciinema.org/a/Klnl435NNmx6nuhbbqT5dYmhA.svg)](https://asciinema.org/a/Klnl435NNmx6nuhbbqT5dYmhA)
