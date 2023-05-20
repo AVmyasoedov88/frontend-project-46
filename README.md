@@ -15,4 +15,4 @@
 
 
 "gendiff with plain format"
-[![asciicast](https://asciinema.org/a/Klnl435NNmx6nuhbbqT5dYmhA.svg)](https://asciinema.org/a/Klnl435NNmx6nuhbbqT5dYmhA)
+[![asciicast](https://asciinema.org/a/wf28I8wvWST8IsObCTpVbrFqV.svg)](https://asciinema.org/a/wf28I8wvWST8IsObCTpVbrFqV)

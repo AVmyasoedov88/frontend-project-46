@@ -1,9 +1,15 @@
 function getType (data) {
     if (typeof data === 'string') {
+        //console.log(data)
+        return `'${data}'`
+    }
+   else if ( data === null || typeof data === "boolean") {
+        //console.log(data)
         return `${data}`
     }
-    if (typeof data === 'object') {
-        return '[complex value]'
+ 
+    else if (typeof data === 'object') {
+        return `[complex value]`
     }
 }
 export default (obj) => {
@@ -11,11 +17,13 @@ const  testPlain = (obj, path) => {
  const treeWithOutChange = obj.filter((node) => node.status !== 'unchanged')
  return treeWithOutChange.map((node) => {
     const pathTree = (path === '') ? `${node.key}` : `${path}.${node.key}`
+    //console.log(node.value)
        switch(node.status) {
         case 'added':
             return `Property '${pathTree}' was added with value: ${getType(node.value)}`;
         case 'changed':
-            return `Property '${pathTree}' was updated. From '${getType(node.value)}' to '${getType(node.value2)}'`;
+            //console.log(node.value2)
+            return `Property '${pathTree}' was updated. From ${getType(node.value)} to ${getType(node.value2)}`;
         case 'deleted':
             return `Property '${pathTree}' was removed`;
         case 'nested':
@@ -26,7 +34,6 @@ const  testPlain = (obj, path) => {
  }).join('\n')
 
 }
-return testPlain(obj, '')
+return `{\n${testPlain(obj, '')}\n}`
 }
 
-//console.log(testPlain(testTree))
