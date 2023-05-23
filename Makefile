@@ -1,11 +1,15 @@
 install:
 	npm ci
 
-make lint:
+lint:
 	npx eslint 
 
 
-make rec:
+rec:
 	asciinema rec
 
- 
+ publish:
+	npm publish --dry-run
+
+test:
+	npm test
