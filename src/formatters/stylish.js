@@ -16,9 +16,9 @@ function indent(strFile) {
 function indentWithoutquotes(obj) {
     const strObj = JSON.stringify(obj, null, 4)
     const unquotes = strObj.replaceAll('"', '')
+    //console.log(unquotes)
     const result = indent(unquotes);
     return result.replaceAll(',', '').trim();
-    //console.log(result)
 }
 
 

@@ -10,8 +10,10 @@ import path, { dirname } from 'path';
   }
   const jsonPath1 = getFixturePath('file1.json');
   const jsonPath2 = getFixturePath('file2.json');
-  const yamlPath1 = getFixturePath('file1.yml');
+  const ymlPath1 = getFixturePath('file1.yml');
   const ymlPath2 = getFixturePath('file2.yml');
+  const yamlPath1 = getFixturePath('file1.yaml');
+  const yamlPath2 = getFixturePath('file2.yaml');
 
   const stylishResult = `{
     common: {
@@ -77,7 +79,8 @@ const jsonResult = `[{"key":"common","children":[{"key":"follow","value":false,"
 
   test('displaying file differences in stylish form', () => {
     expect(findDifferences(jsonPath1, jsonPath2, 'stylish')).toBe(stylishResult);
-    expect(findDifferences(yamlPath1, ymlPath2, 'stylish')).toBe(stylishResult);
+    expect(findDifferences(ymlPath1, ymlPath2, 'stylish')).toBe(stylishResult);
+    expect(findDifferences(yamlPath1, yamlPath2, 'stylish')).toBe(stylishResult);
   }); 
   
   test('displaying file differences in plain form', () => {
