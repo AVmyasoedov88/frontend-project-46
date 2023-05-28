@@ -4,7 +4,7 @@ import formatter from '../index.js'
 
 
 
-function getTree(obj1, obj2) {
+ function getTree(obj1, obj2) {
     const keys = _.uniq([...(Object.keys(obj1)), ...(Object.keys(obj2))])
     const sortedKeys = _.sortBy(keys)
     //console.log(sortedKeys)
@@ -47,8 +47,11 @@ const findDifferences = (filePath1, filePath2, formatName = 'stylish')  =>{
     const object1 = parse(filePath1);
     const object2 = parse(filePath2);
     const tree = getTree(object1, object2)
+    //console.log(tree)
+    //return tree
    return formatter(tree, formatName)
 };
+
 
 export default findDifferences
 
