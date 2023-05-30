@@ -52,7 +52,7 @@ const findDifferences = (filePath1, filePath2, formatName = 'stylish')  =>{
    return formatter(tree, formatName)
 };
 
-
+//console.log(findDifferences('file1.json', 'file2.json'))
 export default findDifferences
 
 

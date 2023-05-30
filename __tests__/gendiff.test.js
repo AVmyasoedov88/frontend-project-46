@@ -15,7 +15,8 @@ import path, { dirname } from 'path';
   const yamlPath1 = getFixturePath('file1.yaml');
   const yamlPath2 = getFixturePath('file2.yaml');
 
-  const stylishResult = `{
+  const stylishResult = 
+`{
     common: {
       + follow: false
         setting1: Value 1
@@ -58,7 +59,7 @@ import path, { dirname } from 'path';
         }
         fee: 100500
     }
-}`;
+}`
 
 const plainhResult = `{
 Property 'common.follow' was added with value: false
