@@ -10,7 +10,7 @@ const formatters = {
 };
 
 export default (tree, formatter) => {
-  if (!formatters[formatter]) throw new Error(`error: option '-f, --format <type>' argument '${formatter}' is invalid. Allowed choices are stylish, plain, json.`);
+  //if (!formatters[formatter]) throw new Error(`error: option '-f, --format <type>' argument '${formatter}' is invalid. Allowed choices are stylish, plain, json.`);
   
   return formatters[formatter](tree);
 };
