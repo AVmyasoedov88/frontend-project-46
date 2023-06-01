@@ -7,11 +7,17 @@ function getType (data) {
         //console.log(data)
         return `${data}`
     }
+    else if ( typeof data === "number") {
+        //console.log(data)
+        return data
+    }
  
     else if (typeof data === 'object') {
         return `[complex value]`
     }
 }
+
+
 export default (obj) => {
 const  testPlain = (obj, path) => {
  const treeWithOutChange = obj.filter((node) => node.status !== 'unchanged')
