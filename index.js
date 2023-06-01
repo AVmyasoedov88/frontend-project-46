@@ -22,8 +22,8 @@ export default (filePath1, filePath2, format) => {
     case "stylish": return stylish(tree);
     case "json": return json(tree);
     case "plain": return plain(tree)
-    default:
-      throw new Error('ERROR');
+    //default:
+      //throw new Error('ERROR');
   }
 }
 

@@ -1,7 +1,7 @@
-import findDifferences from '../src/findDifferences';
+//import findDifferences from '../src/findDifferences';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-import diff from "/home/anton/frontend-project-46/index.js"
+import diff from "../index.js"
 
 
   const getFixturePath = (filename) => {
@@ -96,6 +96,9 @@ const jsonResult = `[{"key":"common","children":[{"key":"follow","value":false,"
     expect(diff(yamlPath1, yamlPath2, 'json')).toBe(jsonResult);
     expect(diff(ymlPath1, ymlPath2, 'json')).toBe(jsonResult);
   }); 
+
+console.log(diff('file1.json', 'file2.json', 'plain'))
+
 
 /*test('toEqual with plain objects', () => {
     const result = findDifferences(path1, path2)
