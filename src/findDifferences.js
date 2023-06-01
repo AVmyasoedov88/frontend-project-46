@@ -1,7 +1,5 @@
 import _ from "lodash";
 import parse from './parsers.js';
-//import formatter from '../index.js'
-
 
 
  function getTree(obj1, obj2) {
