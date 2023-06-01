@@ -40,6 +40,6 @@ const  testPlain = (obj, path) => {
  }).join('\n')
 
 }
-return `{\n${testPlain(obj, '')}\n}`
+return `${testPlain(obj, '')}`
 }
 
