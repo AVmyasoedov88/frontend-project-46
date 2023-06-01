@@ -23,7 +23,7 @@ export default (filePath1, filePath2, format) => {
     case "json": return json(tree);
     case "plain": return plain(tree)
     default:
-      throw new Error();
+      throw new Error('ERROR');
   }
 }
 
