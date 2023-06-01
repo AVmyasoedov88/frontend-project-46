@@ -1,5 +1,6 @@
 import { Command, Option } from "commander";
 import findDifferences from "../src/findDifferences.js";
+import diff from "/home/anton/frontend-project-46/index.js"
 
 const program = new Command();
 program
@@ -12,7 +13,7 @@ program
     .choices(['stylish', 'plain', 'json']).default('stylish'))
   .action((filepath1, filepath2, option) => {
     try {
-      console.log(findDifferences(filepath1, filepath2, option.format));
+      console.log(diff(filepath1, filepath2, option.format));
     } catch (error) {
       console.log(`error: ${error.message}`);
     }

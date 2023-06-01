@@ -1,6 +1,6 @@
 import _ from "lodash";
 import parse from './parsers.js';
-import formatter from '../index.js'
+//import formatter from '../index.js'
 
 
 
@@ -43,13 +43,13 @@ import formatter from '../index.js'
 
 }
 
-const findDifferences = (filePath1, filePath2, formatName = 'stylish')  =>{
+const findDifferences = (filePath1, filePath2)  =>{
     const object1 = parse(filePath1);
     const object2 = parse(filePath2);
     const tree = getTree(object1, object2)
     //console.log(tree)
-    //return tree
-   return formatter(tree, formatName)
+    return tree
+   //return formatter(tree, formatName)
 };
 
 //console.log(findDifferences('file1.json', 'file2.json'))
