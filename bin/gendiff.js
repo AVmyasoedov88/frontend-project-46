@@ -1,5 +1,4 @@
 import { Command, Option } from "commander";
-//import findDifferences from "../src/findDifferences.js";
 import diff from "../index.js"
 
 const program = new Command();
