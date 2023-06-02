@@ -1,23 +1,22 @@
-//import findDifferences from '../src/findDifferences';
+
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-import diff from "../index.js"
+import diff from '../index.js';
 
+const getFixturePath = (filename) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+  return path.join(__dirname, '..', '__fixtures__', filename);
+}
+const jsonPath1 = getFixturePath('file1.json');
+const jsonPath2 = getFixturePath('file2.json');
+const ymlPath1 = getFixturePath('file1.yml');
+const ymlPath2 = getFixturePath('file2.yml');
+const yamlPath1 = getFixturePath('file1.yaml');
+const yamlPath2 = getFixturePath('file2.yaml');
 
-  const getFixturePath = (filename) => {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-    return path.join(__dirname, '..', '__fixtures__', filename);
-  }
-  const jsonPath1 = getFixturePath('file1.json');
-  const jsonPath2 = getFixturePath('file2.json');
-  const ymlPath1 = getFixturePath('file1.yml');
-  const ymlPath2 = getFixturePath('file2.yml');
-  const yamlPath1 = getFixturePath('file1.yaml');
-  const yamlPath2 = getFixturePath('file2.yaml');
-
-  const stylishResult = 
-`{
+const stylishResult =
+  `{
     common: {
       + follow: false
         setting1: Value 1
@@ -62,8 +61,8 @@ import diff from "../index.js"
     }
 }`
 
-const plainhResult = 
-`Property 'common.follow' was added with value: false
+const plainhResult =
+  `Property 'common.follow' was added with value: false
 Property 'common.setting2' was removed
 Property 'common.setting3' was updated. From true to null
 Property 'common.setting4' was added with value: 'blah blah'
@@ -76,37 +75,22 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`
 
 
-const jsonResult = `[{"key":"common","children":[{"key":"follow","value":false,"status":"added"},{"key":"setting1","value":"Value 1","status":"unchanged"},{"key":"setting2","value":200,"status":"deleted"},{"key":"setting3","value":true,"value2":null,"status":"changed"},{"key":"setting4","value":"blah blah","status":"added"},{"key":"setting5","value":{"key5":"value5"},"status":"added"},{"key":"setting6","children":[{"key":"doge","children":[{"key":"wow","value":"","value2":"so much","status":"changed"}],"status":"nested"},{"key":"key","value":"value","status":"unchanged"},{"key":"ops","value":"vops","status":"added"}],"status":"nested"}],"status":"nested"},{"key":"group1","children":[{"key":"baz","value":"bas","value2":"bars","status":"changed"},{"key":"foo","value":"bar","status":"unchanged"},{"key":"nest","value":{"key":"value"},"value2":"str","status":"changed"}],"status":"nested"},{"key":"group2","value":{"abc":12345,"deep":{"id":45}},"status":"deleted"},{"key":"group3","value":{"deep":{"id":{"number":45}},"fee":100500},"status":"added"}]`
+const jsonResult = `[{'key':'common','children':[{'key':'follow','value':false,'status':'added'},{'key':'setting1','value':'Value 1','status':'unchanged'},{'key':'setting2','value':200,'status':'deleted'},{'key':'setting3','value':true,'value2':null,'status':'changed'},{'key':'setting4','value':'blah blah','status':'added'},{'key':'setting5','value':{'key5':'value5'},'status':'added'},{'key':'setting6','children':[{'key':'doge','children':[{'key':'wow','value':'','value2':'so much','status':'changed'}],'status':'nested'},{'key':'key','value':'value','status':'unchanged'},{'key':'ops','value':'vops','status':'added'}],'status':'nested'}],'status':'nested'},{'key':'group1','children':[{'key':'baz','value':'bas','value2':'bars','status':'changed'},{'key':'foo','value':'bar','status':'unchanged'},{'key':'nest','value':{'key':'value'},'value2':'str','status':'changed'}],'status':'nested'},{'key':'group2','value':{'abc':12345,'deep':{'id':45}},'status':'deleted'},{'key':'group3','value':{'deep':{'id':{'number':45}},'fee':100500},'status':'added'}]`
 
-  test('displaying file differences in stylish form', () => {
-    expect(diff(jsonPath1, jsonPath2, 'stylish')).toBe(stylishResult);
-    expect(diff(ymlPath1, ymlPath2, 'stylish')).toBe(stylishResult);
-    expect(diff(yamlPath1, yamlPath2, 'stylish')).toBe(stylishResult);
-  }); 
-  
-  test('displaying file differences in plain form', () => {
-    expect(diff(jsonPath1, jsonPath2, 'plain')).toBe(plainhResult);
-    expect(diff(yamlPath1, ymlPath2, 'plain')).toBe(plainhResult);
-    expect(diff(ymlPath1, ymlPath2, 'plain')).toBe(plainhResult);
-  }); 
+test('displaying file differences in stylish form', () => {
+  expect(diff(jsonPath1, jsonPath2, 'stylish')).toBe(stylishResult);
+  expect(diff(ymlPath1, ymlPath2, 'stylish')).toBe(stylishResult);
+  expect(diff(yamlPath1, yamlPath2, 'stylish')).toBe(stylishResult);
+});
 
-  test('displaying file differences in json form', () => {
-    expect(diff(jsonPath1, jsonPath2, 'json')).toBe(jsonResult);
-    expect(diff(yamlPath1, yamlPath2, 'json')).toBe(jsonResult);
-    expect(diff(ymlPath1, ymlPath2, 'json')).toBe(jsonResult);
-  }); 
+test('displaying file differences in plain form', () => {
+  expect(diff(jsonPath1, jsonPath2, 'plain')).toBe(plainhResult);
+  expect(diff(yamlPath1, ymlPath2, 'plain')).toBe(plainhResult);
+  expect(diff(ymlPath1, ymlPath2, 'plain')).toBe(plainhResult);
+});
 
-console.log(diff('file1.json', 'file2.json', 'plain'))
-
-
-/*test('toEqual with plain objects', () => {
-    const result = findDifferences(path1, path2)
-    const x = JSON.stringify(result)
-    expect(x.split()).toEqual(equal)
-})
-
-test('toEqual with plain objects yml', () => {
-  const result = findDifferences(path1Yml, path2Yml)
-  const x = JSON.stringify(result)
-  expect(x.split()).toEqual(equal)
-})*/
+test('displaying file differences in json form', () => {
+  expect(diff(jsonPath1, jsonPath2, 'json')).toBe(jsonResult);
+  expect(diff(yamlPath1, yamlPath2, 'json')).toBe(jsonResult);
+  expect(diff(ymlPath1, ymlPath2, 'json')).toBe(jsonResult);
+});

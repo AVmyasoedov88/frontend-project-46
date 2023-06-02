@@ -1,13 +1,11 @@
-import _ from "lodash";
+import _ from 'lodash';
 import parse from './parsers.js';
 
 
- function getTree(obj1, obj2) {
+function getTree(obj1, obj2) {
     const keys = _.uniq([...(Object.keys(obj1)), ...(Object.keys(obj2))])
     const sortedKeys = _.sortBy(keys)
-    //console.log(sortedKeys)
     return sortedKeys.map((key) => {
-   // console.log(typeof obj1[key])
         if (!_.has(obj2, key)) {
             return {
                 key,
@@ -41,16 +39,13 @@ import parse from './parsers.js';
 
 }
 
-const findDifferences = (filePath1, filePath2)  =>{
+const findDifferences = (filePath1, filePath2) => {
     const object1 = parse(filePath1);
     const object2 = parse(filePath2);
-    const tree = getTree(object1, object2)
-    //console.log(tree)
+    const tree = getTree(object1, object2);
     return tree
-   //return formatter(tree, formatName)
 };
 
-//console.log(findDifferences('file1.json', 'file2.json'))
 export default findDifferences
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { Command, Option } from "commander";
-import diff from "../index.js"
+import { Command, Option } from 'commander';
+import diff from '../index.js';
 
 const program = new Command();
 program
@@ -22,4 +22,3 @@ program
 program.parse();
 
 export default program;
-
