@@ -1,3 +1,4 @@
+/* eslint-disable */
 const getType = (data) => {
   if (typeof data === 'string') {
     return `'${data}'`;
@@ -14,9 +15,8 @@ const getType = (data) => {
   if (typeof data === 'object') {
     return '[complex value]'
   }
-  
 };
-/* eslint-disable */
+
 export default (obj) => {
    const testPlain = (obj, path) => {
     const treeWithOutChange = obj.filter((node) => node.status !== 'unchanged');

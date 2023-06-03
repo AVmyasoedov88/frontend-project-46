@@ -11,7 +11,6 @@ function getTree(obj1, obj2) {
         value: obj1[key],
         status: 'deleted',
       };
-
     }
 
     if (!_.has(obj1, key)) {
@@ -20,7 +19,6 @@ function getTree(obj1, obj2) {
         value: obj2[key],
         status: 'added',
       };
-
     }
 
     if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
@@ -33,7 +31,6 @@ function getTree(obj1, obj2) {
 
     return obj1[key] === obj2[key] ? { key, value: obj1[key], status: 'unchanged' }
       : { key, value: obj1[key], value2: obj2[key], status: 'changed' };
-      
   });
 }
 

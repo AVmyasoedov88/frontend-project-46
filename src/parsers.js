@@ -8,7 +8,7 @@ const parsers = {
   yaml: yaml.load,
   yml: yaml.load,
 };
-
+/* eslint-disable */
 export default (filePath) => {
   const getPath = (filePath) => path.resolve(process.cwd(), '__fixtures__', filePath);
   const readFile = (fullPath) => fs.readFileSync(fullPath, 'UTF-8');
