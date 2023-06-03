@@ -6,25 +6,25 @@ function getTree(obj1, obj2) {
   const sortedKeys = _.sortBy(keys);
   return sortedKeys.map((key) => {
     if (!_.has(obj2, key)) {
-    return {
+      return {
         key,
         value: obj1[key],
-        status: 'deleted'
+        status: 'deleted',
       };
 
     }
 
     if (!_.has(obj1, key)) {
-    return {
+      return {
         key,
         value: obj2[key],
-        status: 'added'
+        status: 'added',
       };
 
     }
 
     if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
-    return {
+      return {
         key,
         children: getTree(obj1[key], obj2[key]),
         status: 'nested',
@@ -32,7 +32,8 @@ function getTree(obj1, obj2) {
     }
 
     return obj1[key] === obj2[key] ? { key, value: obj1[key], status: 'unchanged' }
-    :{ key, value: obj1[key], value2: obj2[key], status: 'changed' };
+      : { key, value: obj1[key], value2: obj2[key], status: 'changed' };
+      
   });
 }
 

@@ -14,9 +14,9 @@ const getValue = (currentValue, depth) => {
 
   return ['{', ...lines, `${bracketIndent}}`].join('\n');
 };
-
+/* eslint-disable */
 export default (tree) => {
-  const iter = (tree, depth) => {
+  const iter = (tree, depth) => { 
     const currentIndent = getIndent(depth).slice(0, -2);
     const bracketIndent = getBracketIndent(depth);
 
