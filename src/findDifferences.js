@@ -29,9 +29,7 @@ function getTree(obj1, obj2) {
       };
     }
 
-    return obj1[key] === obj2[key] ? { key, value: obj1[key], status: 'unchanged' } : { 
-        key, value: obj1[key], value2: obj2[key], status: 'changed' 
-    };
+    return obj1[key] === obj2[key] ? { key, value: obj1[key], status: 'unchanged' } : { key, value: obj1[key], value2: obj2[key], status: 'changed', };
   });
 }
 
