@@ -12,7 +12,6 @@ const parsers = {
 export default (filePath) => {
   const getPath = (filePath) => path.resolve(process.cwd(), '__fixtures__', filePath);
   const readFile = (fullPath) => fs.readFileSync(fullPath, 'UTF-8');
-  
   const data = readFile(getPath(filePath));
   const getFileFormat = (filePath) => path.extname(filePath).slice(1);
   const format = getFileFormat(getPath(filePath));

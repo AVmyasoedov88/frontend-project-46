@@ -3,9 +3,8 @@ import plain from './src/formatters/plain.js';
 import json from './src/formatters/json.js';
 import findDifferences from './src/findDifferences.js';
 
-
 export default (filePath1, filePath2, format) => {
-  const tree = findDifferences(filePath1, filePath2)
+  const tree = findDifferences(filePath1, filePath2);
   switch (format) {
     case 'stylish': return stylish(tree);
     case 'json': return json(tree);
@@ -13,5 +12,4 @@ export default (filePath1, filePath2, format) => {
     default:
       return stylish(tree);
   }
-}
-
+};

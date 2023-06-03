@@ -11,7 +11,7 @@ program
   .argument('<filepath1>')
   .argument('<filepath2>')
   .addOption(new Option('-f, --format <type>', 'output format')
-  .choices(['stylish', 'plain', 'json']).default('stylish'))
+    .choices(['stylish', 'plain', 'json']).default('stylish'))
   .action((filepath1, filepath2, option) => {
     try {
       console.log(diff(filepath1, filepath2, option.format));
