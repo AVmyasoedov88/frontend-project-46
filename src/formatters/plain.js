@@ -9,9 +9,8 @@ function getType(data) {
 
   if (typeof data === 'number') {
     return data;
-  } 
-    return '[complex value]';
-  
+  }
+  return '[complex value]';
 }
 
 export default (obj) => {
