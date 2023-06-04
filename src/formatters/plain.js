@@ -1,4 +1,4 @@
-const getType = (data) => {
+function getType (data) {
   if (typeof data === 'string') {
     return `'${data}'`;
   }
@@ -12,15 +12,15 @@ const getType = (data) => {
   }
 
   if (typeof data === 'object') {
-    return '[complex value]'
+    return '[complex value]';
   }
 };
 
 export default (obj) => {
-   const testPlain = (obj, path) => {
-    const treeWithOutChange = obj.filter((node) => node.status !== 'unchanged');
+  const testPlain = (tree, path) => {
+    const treeWithOutChange = tree.filter((node) => node.status !== 'unchanged');
     return treeWithOutChange.map((node) => {
-    const pathTree = (path === '') ? `${node.key}` : `${path}.${node.key}`;
+      const pathTree = (path === '') ? `${node.key}` : `${path}.${node.key}`;
       switch (node.status) {
         case 'added':
           return `Property '${pathTree}' was added with value: ${getType(node.value)}`;
@@ -32,7 +32,7 @@ export default (obj) => {
           return testPlain(node.children, pathTree);
         default:
           throw new Error();
-        }
+      }
     }).join('\n');
   };
   return `${testPlain(obj, '')}`;
