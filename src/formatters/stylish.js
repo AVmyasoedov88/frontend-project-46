@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import findDifferences from '../findDifferences.js';
 
 const getIndent = (depth, replacer = ' ', spacesCount = 4) => replacer.repeat((depth + 1) * spacesCount);
 const getBracketIndent = (depth, replacer = ' ', spacesCount = 4) => replacer.repeat(depth * spacesCount);
@@ -14,12 +15,12 @@ const getValue = (currentValue, depth) => {
 
   return ['{', ...lines, `${bracketIndent}}`].join('\n');
 };
-/* eslint-disable */
-export default (tree) => {
+
+export default (filePath1, filePath2) => {
+  const tree = findDifferences(filePath1, filePath2);
   const iter = (tree, depth) => { 
     const currentIndent = getIndent(depth).slice(0, -2);
     const bracketIndent = getBracketIndent(depth);
-
     const lines = tree.map((item) => {
       const { status } = item;
       switch (status) {
