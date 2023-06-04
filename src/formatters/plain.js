@@ -1,20 +1,20 @@
-function getType (data) {
+function getType(data) {
   if (typeof data === 'string') {
     return `'${data}'`;
   }
 
-  if (data === null || typeof data === 'boolean') {
+ else if (data === null || typeof data === 'boolean') {
     return `${data}`;
   }
 
-  if (typeof data === 'number') {
+  else if (typeof data === 'number') {
     return data;
   }
 
-  if (typeof data === 'object') {
+  else {
     return '[complex value]';
   }
-};
+}
 
 export default (obj) => {
   const testPlain = (tree, path) => {
