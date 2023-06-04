@@ -1,4 +1,3 @@
-/* eslint-disable */
 const getType = (data) => {
   if (typeof data === 'string') {
     return `'${data}'`;
