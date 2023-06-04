@@ -2,7 +2,7 @@ function getType(data) {
   if (typeof data === 'string') {
     return `'${data}'`;
   }
-   
+
   if (data === null || typeof data === 'boolean') {
     return `${data}`;
   }
