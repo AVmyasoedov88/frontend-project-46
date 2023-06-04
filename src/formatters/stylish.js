@@ -15,8 +15,8 @@ const getValue = (currentValue, depth) => {
   return ['{', ...lines, `${bracketIndent}}`].join('\n');
 };
 
-export default (tree) => {
-  const iter = (tree, depth) => { 
+export default (obj) => {
+  const iter = (tree, depth) => {
     const currentIndent = getIndent(depth).slice(0, -2);
     const bracketIndent = getBracketIndent(depth);
     const lines = tree.map((item) => {
@@ -43,5 +43,5 @@ export default (tree) => {
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
 
-  return iter(tree, 0);
+  return iter(obj, 0);
 };
