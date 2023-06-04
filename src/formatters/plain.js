@@ -1,9 +1,11 @@
 function getType(data) {
   if (typeof data === 'string') {
     return `'${data}'`;
-  } else if (data === null || typeof data === 'boolean') {
+  } 
+  if (data === null || typeof data === 'boolean') {
     return `${data}`;
-  } else if (typeof data === 'number') {
+  } 
+  if (typeof data === 'number') {
     return data;
   } else {
     return '[complex value]';
