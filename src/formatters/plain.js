@@ -1,15 +1,17 @@
 function getType(data) {
   if (typeof data === 'string') {
     return `'${data}'`;
-  } 
+  }
+   
   if (data === null || typeof data === 'boolean') {
     return `${data}`;
-  } 
+  }
+
   if (typeof data === 'number') {
     return data;
-  } else {
+  } 
     return '[complex value]';
-  }
+  
 }
 
 export default (obj) => {
