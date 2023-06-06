@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import stylish from './stylish';
+import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 

@@ -28,3 +28,4 @@ describe.each([
     expect(diff(filePath1, filePath2, 'json')).toEqual(jsonResultData);
   });
 });
+
