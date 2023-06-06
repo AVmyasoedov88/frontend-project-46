@@ -28,7 +28,7 @@ export default (obj) => {
         case 'nested':
           return testPlain(node.children, pathTree);
         default:
-          throw new Error();
+          throw new Error('Unknown status');
       }
     }).join('\n');
   };

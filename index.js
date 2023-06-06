@@ -1,15 +1,11 @@
-import stylish from './src/formatters/stylish.js';
-import plain from './src/formatters/plain.js';
-import json from './src/formatters/json.js';
-import findDifferences from './src/findDifferences.js';
+/* eslint-disable import/extensions */
+import makeForm from './src/formatters/makeForm.js';
+import getTree from './src/getTree.js';
+import parse from './src/parsers.js';
 
-export default (filePath1, filePath2, format) => {
-  const tree = findDifferences(filePath1, filePath2);
-  switch (format) {
-    case 'stylish': return stylish(tree);
-    case 'json': return json(tree);
-    case 'plain': return plain(tree);
-    default:
-      return stylish(tree);
-  }
+export default (filePath1, filePath2, format = 'stylish') => {
+  const object1 = parse(filePath1);
+  const object2 = parse(filePath2);
+  const tree = getTree(object1, object2);
+  return makeForm(format, tree);
 };

@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import parse from './parsers.js';
 
 function getTree(obj1, obj2) {
   const keys = _.uniq([...(Object.keys(obj1)), ...(Object.keys(obj2))]);
@@ -28,18 +27,22 @@ function getTree(obj1, obj2) {
         status: 'nested',
       };
     }
-/* eslint-disable */
-    return obj1[key] === obj2[key] ? { key, value: obj1[key], status: 'unchanged' } : { 
-        key, value: obj1[key], value2: obj2[key], status: 'changed' 
+
+    if (obj1[key] === obj2[key]) {
+      return {
+        key,
+        value: obj1[key],
+        status: 'unchanged',
+      };
+    }
+
+    return {
+      key,
+      value: obj1[key],
+      value2: obj2[key],
+      status: 'changed',
     };
   });
 }
 
-const findDifferences = (filePath1, filePath2) => {
-  const object1 = parse(filePath1);
-  const object2 = parse(filePath2);
-  const tree = getTree(object1, object2);
-  return tree;
-};
-
-export default findDifferences;
+export default getTree;
